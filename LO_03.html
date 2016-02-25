@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #div{
+            background-color: #2DCB70;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script>
+    window.onload = function(){
+        var myDiv = document.getElementById("div");
+        myDiv.onmouseover = function(){
+            startMove();
+        }
+    };
+    var ii;
+    function startMove(){
+        clearInterval(ii);
+        var myDiv = document.getElementById("div");
+        ii=setInterval(function(){
+            myDiv.style.width = parseInt(getStyle(myDiv,"width")) -1+"px";
+            console.log(getStyle(myDiv,"width"))
+        },30)
+    }
+    //getStyle()获取的是内联样式，需要parseInt取数字
+        function getStyle(obj,attr){
+        if (obj.currentStyle){
+            return obj.currentStyle[attr];
+        }else {
+            return getComputedStyle(obj)[attr];
+        }
+    }
+</script>
+
+</body>
+</html>

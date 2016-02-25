@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+    <form action="" onsubmit="validate_form(this)" method="post">
+        email:<input type="text" name="email" size="30">
+        <br>
+        passWord:<input type="passWord" name="passWord" size="30">
+        <br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+    <script type="text/javascript">
+    function validate_form(thisform){
+        // with (thisform) {
+            if (validate_abt(thisform.email,"email is err")===false) {
+                thisform.email.focus();
+                return false;
+            }
+        // }
+    }
+    function validate_abt(file,errText){
+        // with (file) {
+            
+            if (file.value===null||file.value==="") {
+                alert(errText);
+                return false;
+            }else{
+                return true;
+            // }
+        }
+
+    }
+    function foo(){
+
+    }
+    foo.prototype.z=3;
+    var obj = new foo();
+    obj.x=1;
+    obj.y=2;
+    console.log("z" in obj);
+    obj.hasOwnProperty("z");
+      // function validate_abt(file,errText){
+      //   var apos = file.value.indexOf("@");
+      //   var dotpos = file.value.indexOf(".");
+      //   if (apos<1||dotpos-apos<2) {
+      //       alert(errText);
+      //       return false;
+      //   }else {
+      //       return true;
+      //   }
+      // }
+      // if(!"a"in window){
+      //   a=1;
+      // }
+      // console.log(a);
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            position: absolute;
+            left: -200px;
+        }
+        .left{
+            width: 200px;
+            height: 200px;
+            background-color: #2aabd2;
+            float: left;
+        }
+        .right{
+            width: 10px;
+            height: 30px;
+            background-color:black;
+            float: left;
+        }
+        .container1{
+            width: 200px;
+            height: ;
+        }
+    </style>
+    <script src="ByClassName.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+
+<div class="container1"></div>
+<script>
+    window.onload = function(){
+        var con = getClassName("container")[0];
+        con.onmouseover = function(){
+            move(0);
+        };
+        con.onmouseout = function(){
+            move(-200);
+        }
+    };
+    var ii;
+    function move(num){
+        clearInterval(ii);
+        var con = getClassName("container")[0];
+        ii =  setInterval(function(){
+            var speed = (num-con.offsetLeft)/10;
+            speed=speed>0?Math.ceil(speed):Math.floor(speed);
+            if (con.offsetLeft ==num){
+                clearInterval(ii);
+            }else {
+                con.style.left = con.offsetLeft+speed+"px";
+            }
+        },30);
+    }
+</script>
+
+</body>
+</html>
